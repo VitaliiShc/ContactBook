@@ -1,15 +1,19 @@
 .list {
+  gap: 10px;
+  width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid NavajoWhite;
+  border-radius: 5px;
 }
 
 .item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  width: 300px;
-  border: 2px solid black;
+  padding: 5px 10px;
+  width: 455px;
+  border: 2px solid blanchedalmond;
   border-radius: 5px;
 }

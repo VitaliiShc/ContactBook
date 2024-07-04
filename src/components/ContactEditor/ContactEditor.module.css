@@ -1,0 +1,75 @@
+.formwrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editorsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.infoFieldWrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.icon {
+  line-height: 0;
+  margin-right: 10px;
+  color: MediumBlue;
+  stroke: navy;
+  stroke-width: 1px;
+}
+
+.input {
+  border: 2px solid NavajoWhite;
+  border-radius: 2px;
+  width: 220px;
+  height: 20px;
+  font-size: 18px;
+  line-height: 0;
+  -webkit-text-fill-color: navy;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input:focus {
+  outline: 2px solid SandyBrown;
+}
+.input::placeholder {
+  -webkit-text-fill-color: RoyalBlue;
+}
+
+.error {
+  color: orangered;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute;
+  right: 0;
+  transform: translate(0, -50%);
+  border-radius: 2px;
+  line-height: 16px;
+  text-align: right;
+  max-width: 90px;
+  background-color: NavajoWhite;
+}
+
+.contactMngBts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.icon {
+  line-height: 0;
+  margin-right: 10px;
+  color: MediumBlue;
+  stroke: navy;
+  stroke-width: 1px;
+}
+
+.btn {
+  padding: 0;
+  line-height: 0;
+}
