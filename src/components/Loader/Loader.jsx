@@ -1,6 +1,6 @@
-import css from "./Loader.module.css";
-
 import { useState, useEffect } from "react";
+
+import css from "./Loader.module.css";
 
 export const Loader = () => {
   const [dots, setDots] = useState("");

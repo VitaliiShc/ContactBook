@@ -1,0 +1,26 @@
+.homeTitle {
+  margin-top: 100px;
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
+}
+
+.contactsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactsTools {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookTitle {
+  margin-bottom: 20px;
+}
+
+.link {
+  color: navy;
+  text-decoration: underline;
+}
