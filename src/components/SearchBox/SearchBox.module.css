@@ -1,0 +1,16 @@
+.searchbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.input {
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  width: 300px;
+  height: 30px;
+}
+.input:focus {
+  outline: 1px solid black;
+}
