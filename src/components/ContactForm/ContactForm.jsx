@@ -1,32 +1,36 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { useId } from 'react';
-import { nanoid } from 'nanoid';
-import css from './ContactForm.module.css';
+import css from "./ContactForm.module.css";
 
-const ContactForm = ({ onAdd }) => {
-  const initialValues = {
-    name: '',
-    number: '',
-  };
+import { useDispatch } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useId } from "react";
 
+import { addContact } from "../../redux/contactsSlice";
+
+export const ContactForm = () => {
   const nameFieldId = useId();
   const numberFieldId = useId();
+  const dispatch = useDispatch();
+
+  const initialValues = {
+    name: "",
+    number: "",
+  };
 
   const ContactFormSchema = Yup.object().shape({
     name: Yup.string()
-      .min(3, 'Too short!')
-      .max(50, 'Too long!')
-      .required('Required!'),
+      .min(3, "Too short!")
+      .max(50, "Too long!")
+      .required("Required!"),
     number: Yup.string()
-      .min(3, 'Too short!')
-      .max(50, 'Too long!')
-      .required('Required!')
-      .matches(/^[0-9-]+$/, 'Numbers and dashes only'),
+      .min(3, "Too short!")
+      .max(50, "Too long!")
+      .required("Required!")
+      .matches(/^[0-9-]+$/, "Numbers and dashes only"),
   });
 
   const handleSubmit = (values, actions) => {
-    onAdd({ id: nanoid(), ...values });
+    dispatch(addContact(values));
     actions.resetForm();
   };
 
@@ -39,7 +43,7 @@ const ContactForm = ({ onAdd }) => {
       <Form className={css.form}>
         <div className={css.fieldwrap}>
           <label htmlFor={nameFieldId} className={css.label}>
-            Name{' '}
+            Name{" "}
             <ErrorMessage name="name" component="span" className={css.error} />
           </label>
           <Field
@@ -49,10 +53,9 @@ const ContactForm = ({ onAdd }) => {
             className={css.input}
           />
         </div>
-
         <div className={css.fieldwrap}>
           <label htmlFor={numberFieldId} className={css.label}>
-            Number{' '}
+            Number{" "}
             <ErrorMessage
               name="number"
               component="span"
@@ -66,7 +69,6 @@ const ContactForm = ({ onAdd }) => {
             className={css.input}
           />
         </div>
-
         <button className={css.btn} type="submit">
           Add contact
         </button>
