@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
+import toast from "react-hot-toast";
 
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 
 export const ContactForm = () => {
   const nameFieldId = useId();
@@ -30,7 +31,16 @@ export const ContactForm = () => {
   });
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    dispatch(addContact(values))
+      .unwrap()
+      .then(() => {
+        toast.success(`Contact ${values.name} has been added.`);
+      })
+      .catch(() => {
+        toast.error(
+          `Failed to add contact ${values.name} not added, try again.`
+        );
+      });
     actions.resetForm();
   };
 
